@@ -1,0 +1,19 @@
+Android Boot Image Info:
+
+* file name = boot.img 
+
+* image size = 6377472 bytes (6.08 MB)
+  page size  = 2048 bytes
+
+* Boot Name = ""
+
+* kernel size       = 5358024 bytes (5.11 MB)
+  ramdisk size      = 1014000 bytes (0.97 MB)
+
+* load addresses:
+  kernel:       0x10008000
+  ramdisk:      0x11000000
+  tags:         0x10000100
+
+* empty cmdline
+* id = 0x1fd8f2b8 0x31403277 0x7d4a16f1 0xfbe64c50 0x51391a57 0x00000000 0x00000000 0x00000000

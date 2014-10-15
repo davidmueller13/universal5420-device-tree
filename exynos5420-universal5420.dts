@@ -25,7 +25,7 @@
 	};
 
 	chosen {
-		bootargs = "console=ttySAC2,115200n8";
+		bootargs = "console=ttySAC2,115200n8 vmalloc=512M androidboot.console=ttySAC2";
 	};
 
 	fixed-rate-clocks {
