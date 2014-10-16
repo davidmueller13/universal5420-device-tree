@@ -56,7 +56,38 @@ max77803@?? {
 			regulator-max-microvolt = <2580000>;
 			regulator-boot-on = <1>;
 			regulator-always-on;
-			/* To be continued... */
+		};
+
+		leds-sec1@??? {
+			compatible = "leds-sec1";
+		};
+			/*
+			#ifdef CONFIG_LEDS_MAX77803
+			static struct max77803_led_platform_data max77803_led_pdata = {
+
+				.num_leds = 2,
+
+				.leds[0].name = "leds-sec1",
+				.leds[0].id = MAX77803_FLASH_LED_1,
+				.leds[0].timer = MAX77803_FLASH_TIME_187P5MS,
+				.leds[0].timer_mode = MAX77803_TIMER_MODE_MAX_TIMER,
+				.leds[0].cntrl_mode = MAX77803_LED_CTRL_BY_FLASHSTB,
+			#if defined(CONFIG_MACH_V1A) || defined(CONFIG_MACH_N1A) || defined(CONFIG_N2A)
+				.leds[0].brightness = 0x32, // Max77888 : 19.53mA+0x32*19.53 = 996.03 mA
+			#else
+				.leds[0].brightness = 0x3D,
+		    	//.leds[0].brightness = 0x1E,
+			#endif
+
+				.leds[1].name = "torch-sec1",
+				.leds[1].id = MAX77803_TORCH_LED_1,
+				.leds[1].cntrl_mode = MAX77803_LED_CTRL_BY_FLASHSTB,
+				.leds[1].brightness = 0x06,
+			};
+			*/
+
+		torch-sec1@??? {
+			compatible = "torch-sec1";
 		};
 
 		rtc@c {
