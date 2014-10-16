@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Linux/Documentation/devicetree/bindings/power_supply/charger-manager.txt - Linux Cross Reference - Free Electrons</title>
+<link rel="stylesheet" href="/style.css" type="text/css" media="screen" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta description="Linux Cross-Reference (LXR) service by Free Electrons. The easiest way to study Linux kernel sources. Available for all recent releases." />
+<base href="http://lxr.free-electrons.com/"/>
+</head>
+
+<body>
+
+<div id="wrapper">
+<div id="wrapper2">
+<div id="header">
+
+	<div id="logo">
+		<h1>Linux Cross Reference</h1>
+		<h2><a href="http://free-electrons.com">Free Electrons</a></h2>
+		<h2>Embedded Linux Experts</h2>
+		<p>
+		 &nbsp;&bull;&nbsp;<b><i>source navigation</i></b> &nbsp;&bull;&nbsp;<a href="diff/Documentation/devicetree/bindings/power_supply/charger-manager.txt">diff markup</a> &nbsp;&bull;&nbsp;<a href="ident">identifier search</a> &nbsp;&bull;&nbsp;<a href="search">freetext search</a> &nbsp;&bull;&nbsp;
+		</p>
+	</div>
+</div>
+
+<div id="topbar">
+  
+  <p>Version: &nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=2.0.40">2.0.40</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=2.2.26">2.2.26</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=2.4.37">2.4.37</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.1">3.1</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.2">3.2</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.3">3.3</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.4">3.4</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.5">3.5</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.6">3.6</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.7">3.7</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.8">3.8</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.9">3.9</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.10">3.10</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.11">3.11</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.12">3.12</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.13">3.13</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.14">3.14</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.15">3.15</a>&nbsp;<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt?v=3.16">3.16</a>&nbsp;<b><i>3.17</i></b></p>
+  
+</div>
+
+<h1><a href="source/">Linux</a>/<a href="source/Documentation/">Documentation</a>/<a href="source/Documentation/devicetree/">devicetree</a>/<a href="source/Documentation/devicetree/bindings/">bindings</a>/<a href="source/Documentation/devicetree/bindings/power_supply/">power_supply</a>/<a href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt">charger-manager.txt</a></h1>
+<div id="lxrcode"><pre>  <a name="L1" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L1">1</a> charger-manager bindings
+  <a name="L2" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L2">2</a> ~~~~~~~~~~~~~~~~~~~~~~~~
+  <a name="L3" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L3">3</a> 
+  <a name="L4" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L4">4</a> Required properties :
+  <a name="L5" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L5">5</a>  - compatible : "charger-manager"
+  <a name="L6" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L6">6</a>  - &lt;&gt;-supply : for regulator consumer
+  <a name="L7" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L7">7</a>  - cm-num-chargers : number of chargers
+  <a name="L8" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L8">8</a>  - cm-chargers : name of chargers
+  <a name="L9" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L9">9</a>  - cm-fuel-gauge : name of battery fuel gauge
+ <a name="L10" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L10">10</a>  - subnode &lt;regulator&gt; :
+ <a name="L11" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L11">11</a>         - cm-regulator-name : name of charger regulator
+ <a name="L12" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L12">12</a>         - subnode &lt;cable&gt; :
+ <a name="L13" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L13">13</a>                 - cm-cable-name : name of charger cable
+ <a name="L14" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L14">14</a>                 - cm-cable-extcon : name of extcon dev
+ <a name="L15" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L15">15</a> (optional)      - cm-cable-min : minimum current of cable
+ <a name="L16" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L16">16</a> (optional)      - cm-cable-max : maximum current of cable
+ <a name="L17" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L17">17</a> 
+ <a name="L18" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L18">18</a> Optional properties :
+ <a name="L19" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L19">19</a>  - cm-name : charger manager's name (default : "battery")
+ <a name="L20" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L20">20</a>  - cm-poll-mode : polling mode (enum polling_modes)
+ <a name="L21" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L21">21</a>  - cm-poll-interval : polling interval
+ <a name="L22" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L22">22</a>  - cm-battery-stat : battery status (enum data_source)
+ <a name="L23" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L23">23</a>  - cm-fullbatt-* : data for full battery checking
+ <a name="L24" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L24">24</a>  - cm-thermal-zone : name of external thermometer's thermal zone
+ <a name="L25" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L25">25</a>  - cm-battery-* : threshold battery temperature for charging
+ <a name="L26" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L26">26</a>         -cold : critical cold temperature of battery for charging
+ <a name="L27" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L27">27</a>         -cold-in-minus : flag that cold temerature is in minus degree
+ <a name="L28" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L28">28</a>         -hot : critical hot temperature of battery for charging
+ <a name="L29" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L29">29</a>         -temp-diff : temperature difference to allow recharging
+ <a name="L30" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L30">30</a>  - cm-dis/charging-max = limits of charging duration
+ <a name="L31" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L31">31</a> 
+ <a name="L32" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L32">32</a> Example :
+ <a name="L33" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L33">33</a>         charger-manager@0 {
+ <a name="L34" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L34">34</a>                 compatible = "charger-manager";
+ <a name="L35" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L35">35</a>                 chg-reg-supply = &lt;&amp;charger_regulator&gt;;
+ <a name="L36" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L36">36</a> 
+ <a name="L37" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L37">37</a>                 cm-name = "battery";
+ <a name="L38" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L38">38</a>                 /* Always polling ON : 30s */
+ <a name="L39" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L39">39</a>                 cm-poll-mode = &lt;1&gt;;
+ <a name="L40" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L40">40</a>                 cm-poll-interval = &lt;30000&gt;;
+ <a name="L41" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L41">41</a> 
+ <a name="L42" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L42">42</a>                 cm-fullbatt-vchkdrop-ms = &lt;30000&gt;;
+ <a name="L43" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L43">43</a>                 cm-fullbatt-vchkdrop-volt = &lt;150000&gt;;
+ <a name="L44" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L44">44</a>                 cm-fullbatt-soc = &lt;100&gt;;
+ <a name="L45" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L45">45</a> 
+ <a name="L46" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L46">46</a>                 cm-battery-stat = &lt;3&gt;;
+ <a name="L47" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L47">47</a> 
+ <a name="L48" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L48">48</a>                 cm-num-chargers = &lt;3&gt;;
+ <a name="L49" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L49">49</a>                 cm-chargers = "charger0", "charger1", "charger2";
+ <a name="L50" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L50">50</a> 
+ <a name="L51" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L51">51</a>                 cm-fuel-gauge = "fuelgauge0";
+ <a name="L52" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L52">52</a> 
+ <a name="L53" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L53">53</a>                 cm-thermal-zone = "thermal_zone.1"
+ <a name="L54" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L54">54</a>                 /* in deci centigrade */
+ <a name="L55" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L55">55</a>                 cm-battery-cold = &lt;50&gt;;
+ <a name="L56" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L56">56</a>                 cm-battery-cold-in-minus;
+ <a name="L57" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L57">57</a>                 cm-battery-hot = &lt;800&gt;;
+ <a name="L58" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L58">58</a>                 cm-battery-temp-diff = &lt;100&gt;;
+ <a name="L59" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L59">59</a> 
+ <a name="L60" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L60">60</a>                 /* Allow charging for 5hr */
+ <a name="L61" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L61">61</a>                 cm-charging-max = &lt;18000000&gt;;
+ <a name="L62" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L62">62</a>                 /* Allow discharging for 2hr */
+ <a name="L63" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L63">63</a>                 cm-discharging-max = &lt;7200000&gt;;
+ <a name="L64" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L64">64</a> 
+ <a name="L65" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L65">65</a>                 regulator@0 {
+ <a name="L66" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L66">66</a>                         cm-regulator-name = "chg-reg";
+ <a name="L67" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L67">67</a>                         cable@0 {
+ <a name="L68" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L68">68</a>                                 cm-cable-name = "USB";
+ <a name="L69" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L69">69</a>                                 cm-cable-extcon = "extcon-dev.0";
+ <a name="L70" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L70">70</a>                                 cm-cable-min = &lt;475000&gt;;
+ <a name="L71" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L71">71</a>                                 cm-cable-max = &lt;500000&gt;;
+ <a name="L72" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L72">72</a>                         };
+ <a name="L73" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L73">73</a>                         cable@1 {
+ <a name="L74" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L74">74</a>                                 cm-cable-name = "TA";
+ <a name="L75" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L75">75</a>                                 cm-cable-extcon = "extcon-dev.0";
+ <a name="L76" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L76">76</a>                                 cm-cable-min = &lt;650000&gt;;
+ <a name="L77" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L77">77</a>                                 cm-cable-max = &lt;675000&gt;;
+ <a name="L78" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L78">78</a>                         };
+ <a name="L79" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L79">79</a>                 };
+ <a name="L80" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L80">80</a> 
+ <a name="L81" href="source/Documentation/devicetree/bindings/power_supply/charger-manager.txt#L81">81</a>         };
+</pre></div><p>
+This page was automatically generated by <a href="http://lxr.linux.no">LXR</a> 0.3.1 (<a href="http://free-electrons.com/pub/source/lxr-0.3.1-fe1.tar.bz2">source</a>).
+&nbsp;&bull;&nbsp;
+Linux is a registered trademark of Linus Torvalds
+&nbsp;&bull;&nbsp;
+<a href="http://free-electrons.com/company/contact/">Contact us</a>
+</p>
+
+<div id="menu">
+<ul>
+   <li><a href="http://free-electrons.com/">Home</a></li>
+   <li><a href="http://free-electrons.com/development/" title="Development">Development</a></li>
+   <li><a href="http://free-electrons.com/services/" title="Services">Services</a></li>
+   <li><a href="http://free-electrons.com/training/" title="Training">Training</a></li>
+   <li><a href="http://free-electrons.com/docs/" title="Docs">Docs</a></li>
+   <li><a href="http://free-electrons.com/community/" title="Community">Community</a></li>
+   <li><a href="http://free-electrons.com/company/" title="Company">Company</a></li>
+   <li><a href="http://free-electrons.com/blog/" title="Blog">Blog</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+</body>
+</html>
