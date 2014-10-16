@@ -30,38 +30,25 @@ max77803@?? {
 	/* Based on information from board-universal5420-mfd.c: */
 	regulators {
 		safout1@??? {
-			compatible = "safeout1", "safeout1,range";			/* Not sure if correct */
+			compatible = "safeout1", "safeout1,range";
 			regulator-name = "ESAFEOUT1";
 			regulator-always-on = <0>;
 			regulator-boot-on = <1>;
-		/* From the board file:
-		.constraints = {
-			.name		= "safeout1 range",
-			.valid_ops_mask = REGULATOR_CHANGE_STATUS,
-			.always_on	= 0,
-			.boot_on	= 1,
-			.state_mem	= {
-				.enabled = 1,
-		*/	
+			regulator-state-mem {
+				enabled = <1>;
+			};	
 		};
 
 		safeout2@??? {
-			compatible = "safeout2", "safeout2,range"; 			/* Not sure if correct */
+			compatible = "safeout2", "safeout2,range";
 			regulator-name = "ESAFEOUT2";
 			regulator-always-on = <0>;
 			regulator-boot-on = <0>;
-		/* From the board file:
-		.constraints	= {
-			.name		= "safeout2 range",
-			.valid_ops_mask = REGULATOR_CHANGE_STATUS,
-			.always_on	= 0,
-			.boot_on	= 0,
-			.state_mem	= {
-				.enabled = 1,
-		*/
+			regulator-state-mem {
+				enabled = <1>;
+			};
 		};
 
-		/* Charger: What I've translated so far from the board file... */
 		charger-manager@0 {
 			compatible = "charger-manager", "vinchg1";
 			regulator-name = "CHARGER";
@@ -73,14 +60,17 @@ max77803@?? {
 		};
 
 		rtc@c {
-			reg = <0xc>; /* From a Documentation file, not sure what the actual value should be here. */
+			reg = <0xc>;
 		};
+	};
+};
+
+
 
 /* Wolfson WM5102 Arizona codec. */
 /* The following was copied straight from the Documentation/devicetree/bindings/mfd/arizona.txt */
 /* More information needs to be gathered from board files such as board-universal5420-audio-w.c */
-	codec {
-		wm5102@1a {
+	codec: wm5102@1a {
 			compatible = "wlf,wm5102";
 			reg = <0x1a>;
 			interrupts = <347>;
