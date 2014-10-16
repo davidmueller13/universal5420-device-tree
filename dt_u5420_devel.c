@@ -47,7 +47,7 @@ max77803@?? {
 
 		safeout2@??? {
 			compatible = "safeout2", "safeout2,range"; 			/* Not sure if correct */
-			regulator-name = "ESAFEOUT";
+			regulator-name = "ESAFEOUT2";
 			regulator-always-on = <0>;
 			regulator-boot-on = <0>;
 		/* From the board file:
