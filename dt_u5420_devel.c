@@ -29,8 +29,10 @@ max77803@?? {
 
 	/* Based on information from board-universal5420-mfd.c: */
 	regulators {
-		ESAFEOUT1 {									/* Or: "safeout1" */
-
+		safout1@??? {
+			regulator-name = "ESAFEOUT1";
+			regulator-always-on = <0>;
+			regulator-boot-on = <1>;
 		/* From the board file:
 		.constraints = {
 			.name		= "safeout1 range",
@@ -40,12 +42,12 @@ max77803@?? {
 			.state_mem	= {
 				.enabled = 1,
 		*/	
-
 		};
 
 		safeout2@??? {
 			regulator-name = "ESAFEOUT";
-
+			regulator-always-on = <0>;
+			regulator-boot-on = <0>;
 		/* From the board file:
 		.constraints	= {
 			.name		= "safeout2 range",
@@ -55,7 +57,6 @@ max77803@?? {
 			.state_mem	= {
 				.enabled = 1,
 		*/
-
 		};
 
 		/* Charger: What I've translated so far from the board file... */
@@ -64,7 +65,7 @@ max77803@?? {
 			regulator-name = "CHARGER";
 			regulator-min-microvolt= <60000>;
 			regulator-max-microvolt = <2580000>;
-			regulator-boot-on = <1>
+			regulator-boot-on = <1>;
 			regulator-always-on;
 			/* To be continued... */
 		};
