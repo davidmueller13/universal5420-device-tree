@@ -20,16 +20,17 @@
 /* mfd */
 /* MAX77803 */
 max77803@?? {
-	compatible = "maxim,max77803"
-	interrupt-parent = <>
-	interrupts = <>
-	reg = <>
-	#address-cells = <>
-	#size-cells = <>
+	compatible = "maxim,max77803";
+	interrupt-parent = <>;
+	interrupts = <>;
+	reg = <>;
+	#address-cells = <>;
+	#size-cells = <>;
 
 	/* Based on information from board-universal5420-mfd.c: */
 	regulators {
 		safout1@??? {
+			compatible = "safeout1", "safeout1,range";			/* Not sure if correct */
 			regulator-name = "ESAFEOUT1";
 			regulator-always-on = <0>;
 			regulator-boot-on = <1>;
@@ -45,6 +46,7 @@ max77803@?? {
 		};
 
 		safeout2@??? {
+			compatible = "safeout2", "safeout2,range"; 			/* Not sure if correct */
 			regulator-name = "ESAFEOUT";
 			regulator-always-on = <0>;
 			regulator-boot-on = <0>;
@@ -101,7 +103,7 @@ max77803@?? {
 /* This seems to be there as well according to board-universal5420-audio.c */
 		
 		wm8994 {
-			compatible = "wlf,wm8994"
+			compatible = "wlf,wm8994";
 			/* samsung-universal-pcm (not sure what this is yet) */
 		};
 	};
@@ -112,5 +114,5 @@ max77803@?? {
 /* Bluetooth stuff. Not much at the moment. */
 /* See: board-bluetooth-bcm4339.c */
 		bcm4339 {
-			compatible = "brcm,bcm4339"
+			compatible = "brcm,bcm4339";
 		};
