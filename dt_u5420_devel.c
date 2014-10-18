@@ -19,19 +19,17 @@
 
 /* mfd */
 /* MAX77803 */
-max77803@?? {
+max77803 {
 	compatible = "maxim,max77803";
-	interrupt-parent = <>;
-	interrupts = <>;
-	reg = <>;
-	#address-cells = <>;
-	#size-cells = <>;
+	interrupt-parent = <&wakeup_eint>;
+	interrupts = <26 0>;
+	reg = <0x09>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 
-	/* Based on information from board-universal5420-mfd.c: */
-	regulators {
-		safout1@??? {
-			compatible = "safeout1", "safeout1,range";
-			regulator-name = "ESAFEOUT1";
+	voltage-regulators {
+		MAX77803_ESAFEOUT1 {
+			regulator-name = "safeout1 range";
 			regulator-always-on = <0>;
 			regulator-boot-on = <1>;
 			regulator-state-mem {
@@ -39,9 +37,8 @@ max77803@?? {
 			};	
 		};
 
-		safeout2@??? {
-			compatible = "safeout2", "safeout2,range";
-			regulator-name = "ESAFEOUT2";
+		MAX77803_ESAFEOUT1 {
+			regulator-name = "safeout2 range";
 			regulator-always-on = <0>;
 			regulator-boot-on = <0>;
 			regulator-state-mem {
@@ -49,8 +46,7 @@ max77803@?? {
 			};
 		};
 
-		charger-manager@0 {
-			compatible = "charger-manager", "vinchg1";
+		MAX77803_CHARGER@0 {
 			regulator-name = "CHARGER";
 			regulator-min-microvolt= <60000>;
 			regulator-max-microvolt = <2580000>;
@@ -58,9 +54,22 @@ max77803@?? {
 			regulator-always-on;
 		};
 
-		leds-sec1@??? {
-			compatible = "leds-sec1";
+		rtc@c {
+			reg = <0xc>;
 		};
+	}
+
+	leds {
+		compatible = "leds-sec1", "torch-sec1";
+
+		leds-sec1 {
+			label = "leds-sec1";
+		};
+
+		torch-sec1 {
+			label = "torch-sec1";
+		};
+	}
 			/*
 			#ifdef CONFIG_LEDS_MAX77803
 			static struct max77803_led_platform_data max77803_led_pdata = {
@@ -85,15 +94,6 @@ max77803@?? {
 				.leds[1].brightness = 0x06,
 			};
 			*/
-
-		torch-sec1@??? {
-			compatible = "torch-sec1";
-		};
-
-		rtc@c {
-			reg = <0xc>;
-		};
-	};
 };
 
 
