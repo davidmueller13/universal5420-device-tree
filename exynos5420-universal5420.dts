@@ -72,6 +72,11 @@
 		status = "okay";
 	};
 
+
+	/* The universal5420 has a Wolfson WM5102 codec. */
+	/* Not sure if I should remove this node (from the smdk5420 device tree) */
+	/* and replace it with the WM5102 node, or what? */
+
 	codec@11000000 {
 		samsung,mfc-r = <0x43000000 0x800000>;
 		samsung,mfc-l = <0x51000000 0x800000>;
@@ -236,98 +241,6 @@
 			/* The above is taken from max77802 documentation file. Unit-address has yet to be verified. */
 
 			regulators {
-				max77802_buck1_reg: BUCK1 {
-					regulator-compatible = "BUCK1";
-					regulator-name = "vdd_mif";
-					regulator-min-microvolt = <700000>;
-					regulator-max-microvolt = <1300000>;
-					regulator-always-on;
-					regulator-boot-on;
-					regulator-valid-modes-mask {
-						regulator-change-voltage;
-						regulator-change-status;
-					};
-					regulator-state-mem {
-						regulator-state-uv = <1100000>;
-						regulator-state-mode = "normal";
-						regulator-state-disabled;
-					};
-					max77802,consumer-supplies = "vdd_mif";
-				};
-
-				max77802_buck2_reg: BUCK2 {
-					regulator-compatible = "BUCK2";
-					regulator-name = "vdd_arm";
-					regulator-min-microvolt = <800000>;
-					regulator-max-microvolt = <1500000>;
-					regulator-apply-uV;
-					regulator-always-on;
-					regulator-boot-on;
-					regulator-valid-modes-mask {
-						regulator-change-status;
-					};
-					regulator-state-mem {
-						regulator-state-disabled;
-					};
-					max77802,consumer-supplies = "vdd_arm";
-				};
-
-				max77802_buck3_reg: BUCK3 {
-					regulator-compatible = "BUCK3";
-					regulator-name = "vdd_int";
-					regulator-min-microvolt = <800000>;
-					regulator-max-microvolt = <1400000>;
-					regulator-always-on;
-					regulator-boot-on;
-					regulator-apply-uV;
-					regulator-valid-modes-mask {
-						regulator-change-voltage;
-						regulator-change-status;
-					};
-					regulator-state-mem {
-						regulator-state-uv = <1100000>;
-						regulator-state-mode = "normal";
-						regulator-state-disabled;
-					};
-					max77802,consumer-supplies = "vdd_int";
-				};
-
-				max77802_buck4_reg: BUCK4 {
-					regulator-compatible = "BUCK4";
-					regulator-name = "vdd_g3d";
-					regulator-min-microvolt = <700000>;
-					regulator-max-microvolt = <1400000>;
-					regulator-always-on;
-					regulator-boot-on;
-					regulator-apply-uV;
-					regulator-valid-modes-mask {
-						regulator-change-voltage;
-						regulator-change-status;
-					};
-					regulator-state-mem {
-						regulator-state-uv = <1100000>;
-						regulator-state-mode = "normal";
-						regulator-state-disabled;
-					};
-					max77802,consumer-supplies = "vdd_g3d";
-				};
-
-				max77802_buck6_reg: BUCK6 {
-					regulator-compatible = "BUCK6";
-					regulator-name = "vdd_kfc";
-					regulator-min-microvolt = <800000>;
-					regulator-max-microvolt = <1500000>;
-					regulator-always-on;
-					regulator-boot-on;
-					regulator-valid-modes-mask {
-						regulator-change-status;
-					};
-					regulator-state-mem {
-						regulator-state-disabled;
-					};
-					max77802,consumer-supplies = "vdd_kfc";
-				};
-
 				max77802_ldo2_reg: LDO2 {
 					regulator-name ="vmem2_1.2v_ap";
 					regulator-min-microvolt = <1200000>;
@@ -772,8 +685,146 @@
 						regulator-status-enabled;
 					};
 					max77802,consumer-supplies = "cam_sensor_core_1.2v";
+
+				max77802_buck1_reg: BUCK1 {
+					regulator-compatible = "BUCK1";
+					regulator-name = "vdd_mif";
+					regulator-min-microvolt = <700000>;
+					regulator-max-microvolt = <1300000>;
+					regulator-always-on;
+					regulator-boot-on;
+					regulator-valid-modes-mask {
+						regulator-change-voltage;
+						regulator-change-status;
+					};
+					regulator-state-mem {
+						regulator-state-uv = <1100000>;
+						regulator-state-mode = "normal";
+						regulator-state-disabled;
+					};
+					max77802,consumer-supplies = "vdd_mif";
+				};
+
+				max77802_buck2_reg: BUCK2 {
+					regulator-compatible = "BUCK2";
+					regulator-name = "vdd_arm";
+					regulator-min-microvolt = <800000>;
+					regulator-max-microvolt = <1500000>;
+					regulator-apply-uV;
+					regulator-always-on;
+					regulator-boot-on;
+					regulator-valid-modes-mask {
+						regulator-change-status;
+					};
+					regulator-state-mem {
+						regulator-state-disabled;
+					};
+					max77802,consumer-supplies = "vdd_arm";
+				};
+
+				max77802_buck3_reg: BUCK3 {
+					regulator-compatible = "BUCK3";
+					regulator-name = "vdd_int";
+					regulator-min-microvolt = <800000>;
+					regulator-max-microvolt = <1400000>;
+					regulator-always-on;
+					regulator-boot-on;
+					regulator-apply-uV;
+					regulator-valid-modes-mask {
+						regulator-change-voltage;
+						regulator-change-status;
+					};
+					regulator-state-mem {
+						regulator-state-uv = <1100000>;
+						regulator-state-mode = "normal";
+						regulator-state-disabled;
+					};
+					max77802,consumer-supplies = "vdd_int";
+				};
+
+				max77802_buck4_reg: BUCK4 {
+					regulator-compatible = "BUCK4";
+					regulator-name = "vdd_g3d";
+					regulator-min-microvolt = <700000>;
+					regulator-max-microvolt = <1400000>;
+					regulator-always-on;
+					regulator-boot-on;
+					regulator-apply-uV;
+					regulator-valid-modes-mask {
+						regulator-change-voltage;
+						regulator-change-status;
+					};
+					regulator-state-mem {
+						regulator-state-uv = <1100000>;
+						regulator-state-mode = "normal";
+						regulator-state-disabled;
+					};
+					max77802,consumer-supplies = "vdd_g3d";
+				};
+
+				max77802_buck6_reg: BUCK6 {
+					regulator-compatible = "BUCK6";
+					regulator-name = "vdd_kfc";
+					regulator-min-microvolt = <800000>;
+					regulator-max-microvolt = <1500000>;
+					regulator-always-on;
+					regulator-boot-on;
+					regulator-valid-modes-mask {
+						regulator-change-status;
+					};
+					regulator-state-mem {
+						regulator-state-disabled;
+					};
+					max77802,consumer-supplies = "vdd_kfc";
 				};
 			};
 		};
 	};
+
+	/* The addresses below have yet to be verified/corrected. Otherwise I'm pretty sure it's quite accurate. */
+
+	i2c_max77693: i2c-gpio {
+		compatible = "i2c-gpio";
+		gpios = <&gpm2 0 GPIO_ACTIVE_HIGH>, <&gpm2 1 GPIO_ACTIVE_HIGH>;
+		i2c-gpio,delay-us = <2>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		status = "okay";
+
+		max77693@66 {
+			compatible = "maxim,max77693";
+			interrupt-parent = <&gpx1>;
+			interrupts = <5 2>;
+			reg = <0x66>;
+
+			regulators {
+				esafeout1_reg: ESAFEOUT1@1 {
+					regulator-name = "ESAFEOUT1";
+					regulator-boot-on;
+				};
+				esafeout2_reg: ESAFEOUT2@2 {
+					regulator-name = "ESAFEOUT2";
+				};
+				charger_reg: CHARGER@0 {
+					regulator-name = "CHARGER";
+					regulator-boot-on;
+					regulator-min-microamp = <60000>;
+					regulator-max-microamp = <2580000>;
+				};
+			};
+
+			/* The stuff below may or may not be a stupid addition. */
+			/* Not sure if it's actually relevant. */
+
+			charger {
+				compatible = "maxim,max77693-charger";
+
+				maxim,constant-microvolt = <4350000>;
+				maxim,min-system-microvolt = <3600000>;
+				maxim,thermal-regulation-celsius = <100>;
+				maxim,battery-overcurrent-microamp = <3500000>;
+				maxim,charge-input-threshold-microvolt = <4300000>;
+			};
+ 		};
+ 	};
 };

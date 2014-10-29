@@ -1,0 +1,27 @@
+
+############################################################################
+SAMSUNG UNIVERSAL5420 DEVICE TREE
+Copyright (C) 2014 Víðir Alexander Jónsson (fractalhemispheres@gmail.com)
+############################################################################
+
+-----------------------------
+
+THIS IS A WORK IN PROGRESS!
+
+-----------------------------
+
+This is a device tree for the Exynos5420-based universal5420 board from Samsung to be used with the n1a / lt03 variant, or more specifically the WiFi and 3G models (SM-P600/P601) of Samsung's Galaxy Note 10.1 2014 Edition. When complete, it should then be possible to use this code as a foundation for other universal5420-based device trees.
+
+I am by no means a programming expert, and this is my first time working with the device tree syntax and I'm sure there's a bunch of errors and unneccesary code to be found. If anyone familiar with this syntax could review my code and give it some constructive criticism, it would be highly appreciated.
+
+For reference I have included the stock board files from the SM-P600 kernel (Linux 3.4) as well as other Exynos5420-based device trees.
+
+Most, if not all, unit addresses are found in /refs-board/include/mach/map.h (where /refs-board = /arch/arm/mach-exynos).
+Other reference files:
+
+"board-universal5420-*.c",
+"board-n1-*.c",
+"board-lt03-*.c"
+"dev-*.c"
+
+Of course, all files that refer to "universal5420" in their names are probably worth looking into.
