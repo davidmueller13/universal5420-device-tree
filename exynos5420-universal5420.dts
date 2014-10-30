@@ -837,13 +837,13 @@
 			0xffffffff
 			0xffffffff
 			>;
-		AVDD-supply = <&max77802_ldo3reg>;
-		LDOVDD-supply = <&max77802_ldo3reg>;
-		DBVDD1-supply = <&max77802_ldo3reg>;
-		DBVDD2-supply = <&max77802_ldo3reg>;
-		DBVDD3-supply = <&max77802_ldo3reg>;
-		CPVDD-supply = <&max77802_ldo3reg>;
-		SPKVDDL-suppy = <&max77802_ldo3reg>;
-		SPKVDDR-supply = <&max77802_ldo3reg>;
+		AVDD-supply = <&max77802_ldo3_reg>;
+		LDOVDD-supply = <&max77802_ldo3_reg>;
+		DBVDD1-supply = <&max77802_ldo3_reg>;
+		DBVDD2-supply = <&max77802_ldo3_reg>;
+		DBVDD3-supply = <&max77802_ldo3_reg>;
+		CPVDD-supply = <&max77802_ldo3_reg>;
+		SPKVDDL-suppy = <&max77802_ldo3_reg>;
+		SPKVDDR-supply = <&max77802_ldo3_reg>;
 	};
 };
