@@ -1,14 +1,14 @@
 
 ############################################################################
 SAMSUNG UNIVERSAL5420 DEVICE TREE
-Copyright (C) 2014 Víðir Alexander Jónsson (fractalhemispheres@gmail.com)
+Víðir Alexander Jónsson, 2014 (http://github.com/sigma-1)
 ############################################################################
-
 -----------------------------
 
 THIS IS A WORK IN PROGRESS!
 
 -----------------------------
+#############################
 
 This is a device tree for the Exynos5420-based universal5420 board from Samsung to be used with the n1a / lt03 variant, or more specifically the WiFi and 3G models (SM-P600/P601) of Samsung's Galaxy Note 10.1 2014 Edition. When complete, it should then be possible to use this code as a foundation for other universal5420-based device trees.
 
@@ -25,3 +25,5 @@ Other reference files:
 "dev-*.c"
 
 Of course, all files that refer to "universal5420" in their names are probably worth looking into.
+
+I have also included official documentation files and some datasheets in the refs-docs directory.
