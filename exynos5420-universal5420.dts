@@ -207,6 +207,18 @@
 		vbus-supply = <&usb301_vbus_reg>;
 	};
 
+	i2c_0: i2c@12C60000 {
+		/* Just straight copypaste from atmel maxtouch documentation. */
+		/* "TEGRA_GPIO" is of course not relevant here. Will take a closer look at this later on. */
+		touch@4b {
+			compatible = "atmel,maxtouch";
+			reg = <0x4b>;
+			interrupt-parent = <&gpio>;
+			interrupts = <TEGRA_GPIO(W, 3) IRQ_TYPE_LEVEL_LOW>;
+		};
+	};
+
+	/* This is from the SMDK5420 dts file which this dts is based upon. Not sure if it's accurate. Will look it up later.  */
 	i2c_2: i2c@12C80000 {
 		samsung,i2c-sda-delay = <100>;
 		samsung,i2c-max-bus-freq = <66000>;
@@ -218,9 +230,10 @@
 		};
 	};
 
+
 	hsi2c_3: i2c@12CD0000 {
 		compatible = "samsung,exynos5-hsi2c";
-		reg = <0x12CD0000 0x1000>;
+		reg = <0x12CD0000 0x10000>;
 		#address-cells = <1>;
 		#size-cells = <0>;
 		clocks = <&clock CLK_USI0>;
@@ -238,7 +251,6 @@
 			reg = <0x09>;
 			#address-cells = <1>;
 			#size-cells = <0>;
-			/* The above is taken from max77802 documentation file. Unit-address has yet to be verified. */
 
 			regulators {
 				max77802_ldo2_reg: LDO2 {
@@ -255,7 +267,7 @@
 						regulator-state-disabled;
 						regulator-state-enabled;
 					};
-					max77802,consumer-supplies = "vmem2_1.2v_ap"; //or: regulator-consumer-supplies =
+					max77802,consumer-supplies = "vmem2_1.2v_ap";
 				};
 
 				max77802_ldo3_reg: LDO3 {
@@ -781,8 +793,26 @@
 		};
 	};
 
-	/* The addresses below have yet to be verified/corrected. Otherwise I'm pretty sure it's quite accurate. */
+	hsi2c_4: i2c@12E00000
+		compatible = "samsung,exynos5-hsi2c";
+		reg = <0x12E00000 0x10000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clocks = <&clock CLK_USI0>;
+		clock-names = "hsi2c";
+		pinctrl-0 = <&i2c3_hs_bus>;
+		pinctrl-names = "default";
+		interrupts = <0 64 0>;		/* Not sure about this */
+		clock-frequency = <400000>; /* Not sure aboout this */
+		status = "okay";
 
+		/* Still need the wacom touchscreen bits. Unable to find any documentation.
+		wacom_input: here@something {
+
+		}; */
+	};
+
+	/* The addresses below have yet to be verified/corrected. Otherwise I'm pretty sure it's quite accurate. */
 	i2c_max77693: i2c-gpio-1 {
 		compatible = "i2c-gpio";
 		gpios = <&gpm2 0 GPIO_ACTIVE_HIGH>, <&gpm2 1 GPIO_ACTIVE_HIGH>;
@@ -814,13 +844,13 @@
 				};
 			};
 
+		/* Leds are not complete. Will have to take a closer look at this later. */
 		max77693_leds: leds@??? {
 			compatible = "max77693,leds-sec1", "max77693,torch-sec1";
 		};
  	};
 
  	/* Just copypaste from wm5102 documentation. Added only the "*-supply" stuff. Will take a closer look at this later on. */
- 	
  	codec: wm5102@1a {
 		compatible: "wlf,wm5102";
 		reg = <0x1a>;
@@ -846,4 +876,14 @@
 		SPKVDDL-suppy = <&max77802_ldo3_reg>;
 		SPKVDDR-supply = <&max77802_ldo3_reg>;
 	};
-};
+
+	/* GPU: Not yet sure where to place this yet. The addresses seem to be correct. Not sure about the interrupts.  */
+	gpu@??? {
+ 		mali {
+                compatible = "arm,mali";
+                reg = <0x11800000 0x5000>;
+                interrupts = <0 219 0>, <0 74 0>, <0 117 0>;
+                clocks = <&clock 501>, <&clock 500>;
+                clock-names = "g3d", "aclk_g3d";
+        };
+}; 
