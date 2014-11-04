@@ -1,0 +1,135 @@
+            CPU0       CPU1       CPU2       CPU3       
+ 65:          0          0          0          0       GIC  dma-pl330.2
+ 66:          0          0          0          0       GIC  dma-pl330.0
+ 67:          0          0          0          0       GIC  dma-pl330.1
+ 74:          0          0          0          0       GIC  s3c2410-wdt
+ 85:         78          0          0          0       GIC  exynos4210-uart
+ 88:     564924          0          0          0       GIC  s3c2440-i2c.0
+ 89:          0          0          0          0       GIC  s3c2440-i2c.1
+ 91:    6813273          0          0          0       GIC  s3c2440-i2c.3
+ 95:          0          0          0          0       GIC  exynos5-hs-i2c.3
+ 97:          1          0          0          0       GIC  exynos-tmu
+102:          0          0          0          0       GIC  spi-s3c64xx
+103:          0          0          0          0       GIC  ehci_hcd:usb1
+104:          0          0          0          0       GIC  xhci_hcd:usb2, exynos-ss-udc.0
+106:         39          0          0          0       GIC  mali.0
+107:     136022          0          0          0       GIC  dw-mci
+108:    2752207          0          0          0       GIC  dw-mci
+109:      15803          0          0          0       GIC  dw-mci
+112:          0          0          0          0       GIC  s5p-mipi-csis.1
+117:          0          0          0          0       GIC  exynos-gsc
+118:          0          0          0          0       GIC  exynos-gsc
+119:         89          0          0          0       GIC  exynos5-hs-i2c.4
+121:          0          0          0          0       GIC  exynos5-jpeg-hx
+123:         98          0          0          0       GIC  s5p-fimg2d
+126:          0          0          0          0       GIC  s5p-mixer
+127:          0          0          0          0       GIC  hdmi-int
+128:          0          0          0          0       GIC  s5p-mfc-v6
+138:       4194          0          0          0       GIC  samsung-adc-v5
+142:          0          0          0          0       GIC  dma-pl330.3
+147:      45151          0          0          0       GIC
+149:     235930          0          0          0       GIC  mali.0
+152:     975856          0          0          0       GIC  mct_tick0
+153:          0     507588          0          0       GIC  mct_tick1
+154:          0          0     295676          0       GIC  mct_tick2
+155:          0          0          0     256177       GIC  mct_tick3
+157:          0          0          0          0       GIC  exynos-fimc-lite.0
+158:          0          0          0          0       GIC  exynos-fimc-lite.1
+200:          0          0          0          0       GIC  exynos5-jpeg-hx
+201:          0          0          0          0       GIC  exynos-sysmmu.29
+215:          0          0          0          0       GIC  exynos-tmu
+216:        169          0          0          0       GIC  exynos-tmu
+217:        151          0          0          0       GIC  exynos-tmu
+218:          0          0          0          0       GIC  exynos-sysmmu.25
+220:          0          0          0          0       GIC  exynos-sysmmu.27
+224:          0          0          0          0       GIC  exynos-sysmmu.19
+235:          0          0          0          0       GIC  exynos5-hs-i2c.6
+247:          0          0          0          0       GIC  exynos-tmu
+251:      85402          0          0          0       GIC  mali.0
+252:          0          0          0          0       GIC  exynos5-scaler
+253:       1215          0          0          0       GIC  exynos5-scaler
+254:         24          0          0          0       GIC  exynos5-scaler
+255:          4          0          0          0       GIC  mobicore
+272:          0          0          0          0  combiner  exynos-sysmmu.5
+274:          0          0          0          0  combiner  exynos-sysmmu.6
+280:          0          0          0          0  combiner  exynos-sysmmu.11
+282:          0          0          0          0  combiner  exynos-sysmmu.30
+284:          0          0          0          0  combiner  exynos-sysmmu.12
+286:          0          0          0          0  combiner  exynos-sysmmu.17
+288:          0          0          0          0  combiner  exynos-sysmmu.4
+290:          0          0          0          0  combiner  exynos-sysmmu.20
+294:          0          0          0          0  combiner  exynos-sysmmu.9
+296:          0          0          0          0  combiner  exynos-sysmmu.9
+298:          0          0          0          0  combiner  exynos-sysmmu.9
+300:          0          0          0          0  combiner  exynos-sysmmu.9
+302:          0          0          0          0  combiner  exynos-sysmmu.16
+306:          0          0          0          0  combiner  exynos-sysmmu.0
+316:          0          0          0          0  combiner  exynos-sysmmu.2
+325:          0          0          0          0  combiner  exynos-sysmmu.0
+332:          0          0          0          0  combiner  exynos-sysmmu.16
+339:          0          0          0          0  combiner  s5p-dp
+340:          0          0          0          0  combiner  exynos-sysmmu.16
+342:          0          0          0          0  combiner  exynos-sysmmu.9
+344:          0          0          0          0  combiner  exynos-sysmmu.16
+405:      84089          0          0          0  combiner  s3c_fb
+409:          0          0          0          0  combiner  mcuctl
+414:          0          0          0          0  combiner  exynos-sysmmu.28
+434:          0          0          0          0  combiner  exynos-sysmmu.22
+436:          0          0          0          0  combiner  exynos-sysmmu.23
+438:          0          0          0          0  combiner  exynos-sysmmu.26
+443:          0          0          0          0  combiner  mct_comp_irq
+446:          0          0          0          0  combiner  exynos-sysmmu.21
+449:          0          0          0          0  combiner  exynos-sysmmu.13
+453:          0          0          0          0  combiner  exynos-sysmmu.15
+474:          0          0          0          0  combiner  exynos-sysmmu.24
+512:          0          0          0          0  exynos-eint  pen_insert
+513:          0          0          0          0  exynos-eint  flip_cover
+514:          2          0          0          0  exynos-eint  KEY_VOLUMEUP
+515:          2          0          0          0  exynos-eint  KEY_VOLUMEDOWN
+517:         15          0          0          0  exynos-eint  KEY_HOME
+523:          0          0          0          0  exynos-eint  bma255_accel
+524:          0          0          0          0  exynos-eint  max77803-irq
+525:          0          0          0          0  exynos-eint  fuelgauge-irq
+528:     408102          0          0          0  exynos-eint  bcmsdh_sdmmc
+529:          4          0          0          0  exynos-eint  bt host_wake
+530:          0          0          0          0  exynos-eint  KEY_POWER
+532:          0          0          0          0  exynos-eint  dw_mmc.2
+533:         86          0          0          0  exynos-eint  arizona
+536:         16          0          0          0  exynos-eint  max77802-irq
+539:          3          0          0          0  exynos-eint  ak8963c_int
+541:          1          0          0          0  exynos-eint  gps_host_wake
+543:          1          0          0          0  exynos-eint  hdmi-ext
+544:      28923          0          0          0  s5p_gpioint  Atmel MXT1664S
+545:          3          1          3          2  s5p_gpioint  sec_epen_irq
+546:          1          0          0          0  s5p_gpioint  sec_epen_pdct
+555:          0          0          0          0  s5p_gpioint  sii8240
+655:         10          0          0          0  max77802
+656:         16          0          0          0  max77802  rtc-alarm0
+659:         16          0          0          0  max77802
+693:          8          0         78          0   arizona  wm5102 AOD
+694:          7          0         77          0   arizona  wm5102 IRQ
+745:          0          0          1          0    regmap  JACKDET rise
+746:          0          0          0          0    regmap  JACKDET fall
+767:          0          0          0          0    regmap  Thermal warning
+768:          0          0          0          0    regmap  Thermal shutdown
+769:          0          0          0          0    regmap  MICDET
+770:          7          0         74          0    regmap  HPDET
+776:          7          0         75          0    regmap  Underclocked
+777:          0          0          0          0    regmap  Overclocked
+780:          0          0          0          0    regmap  CLKGEN error
+792:          0          0          0          0    regmap  Boot done
+795:          0          0          0          0    regmap  FLL2 clock OK
+796:          7          0         73          0    regmap  FLL1 clock OK
+831:          0          0          0          0  max77803  bypass-irq
+836:          0          0          0          0  max77803  chgin-irq
+837:          0          0          0          0  max77803  muic-adc
+840:          0          0          0          0  max77803  muic-adc1k
+841:          0          0          0          0  max77803  muic-chgtype
+845:          0          0          0          0  max77803  muic-vbvolt
+IPI0:          0          0          0          0  Timer broadcast interrupts
+IPI1:     824945    1063285     807246     622621  Rescheduling interrupts
+IPI2:        805        952        977        905  Function call interrupts
+IPI3:          2          2          0          2  Single function call interrupts
+IPI4:          0          0          0          0  CPU stop interrupts
+IPI5:          0          0          0          0  CPU backtrace
+Err:          0

@@ -1,0 +1,219 @@
+ARM: Mali: Add device tree support
+
+The Mali driver is converted to a DT based driver for
+supporting common clock framework.
+
+BUG=chrome-os-partner:19183
+TEST=Built and booted snow board and saw login screen
+
+Change-Id: I0a14ea31d0b0701e428f2ac855ea0aac364865bb
+Signed-off-by: Arun Kumar K <aru...@samsung.com>
+---
+A Documentation/devicetree/bindings/arm/exynos/mali.txt
+M drivers/gpu/arm/t6xx/kbase/src/linux/config/tpip/mali_kbase_config_exynos5.c
+M drivers/gpu/arm/t6xx/kbase/src/linux/mali_kbase_core_linux.c
+3 files changed, 47 insertions(+), 83 deletions(-)
+
+
+  git pull ssh://gerrit.chromium.org:29418/chromiumos/third_party/kernel-next refs/changes/73/55773/1 
+
+diff --git a/Documentation/devicetree/bindings/arm/exynos/mali.txt b/Documentation/devicetree/bindings/arm/exynos/mali.txt
+new file mode 100644
+index 0000000..3fdd787
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/exynos/mali.txt
+@@ -0,0 +1,23 @@
++ARM 3D Graphics IP (Mali T6xx)
++
++The Mali T6xx series IP is present in Samsung Exynos
++platforms for enabling 3D grahics acceleration.
++The DT node for this IP has to be defined in the following
++way:
++
++Required properties:
++
++  - compatible : value should be "arm,mali"
++  - reg        : Physical base address of the IP registers and
++                length of the memory mapped region.
++  - interrupts : ARM Mali interrupt number to the CPU
++
++Example :
++
++        mali {
++                compatible = "arm,mali";
++                reg = <0x11800000 0x5000>;
++                interrupts = <0 118 0>, <0 119 0>, <0 117 0>;
++                clocks = <&clock 345>, <&clock 346>;
++                clock-names = "g3d", "aclk_400_g3d";
++        };
+diff --git a/drivers/gpu/arm/t6xx/kbase/src/linux/config/tpip/mali_kbase_config_exynos5.c b/drivers/gpu/arm/t6xx/kbase/src/linux/config/tpip/mali_kbase_config_exynos5.c
+index 17931af..5e0f9f5 100644
+--- a/drivers/gpu/arm/t6xx/kbase/src/linux/config/tpip/mali_kbase_config_exynos5.c
++++ b/drivers/gpu/arm/t6xx/kbase/src/linux/config/tpip/mali_kbase_config_exynos5.c
+@@ -303,7 +303,7 @@
+         else
+         {
+                 /* android_v4 support */
+-                clk_enable(clk_g3d);
++                clk_prepare_enable(clk_g3d);
+                 printk("v4 support\n");
+         }
+ 
+@@ -341,7 +341,7 @@
+                 }
+         }
+ #endif /*  CONFIG_T6XX_HWVER_R0P0 */
+-        (void) clk_enable(platform->sclk_g3d);
++        (void) clk_prepare_enable(platform->sclk_g3d);
+         return 0;
+ out:
+         return -EPERM;
+@@ -390,12 +390,12 @@
+         if(clk_g3d)
+         {
+                 /* android_v4 support */
+-                (void)clk_disable(clk_g3d);
++                (void)clk_disable_unprepare(clk_g3d);
+         }
+         else
+         {
+                 /* chrome support */
+-                (void)clk_disable(platform->sclk_g3d);
++                (void)clk_disable_unprepare(platform->sclk_g3d);
+         }
+         return 0;
+ }
+@@ -1718,7 +1718,6 @@
+         unsigned long gpll_rate = 0, aclk_400_rate = 0;
+         unsigned long tmp = 0;
+         struct exynos_context *platform;
+-
+ 
+         if (!kbdev)
+                 panic("no kbdev");
+diff --git a/drivers/gpu/arm/t6xx/kbase/src/linux/mali_kbase_core_linux.c b/drivers/gpu/arm/t6xx/kbase/src/linux/mali_kbase_core_linux.c
+index 0ff232e..5fca913 100644
+--- a/drivers/gpu/arm/t6xx/kbase/src/linux/mali_kbase_core_linux.c
++++ b/drivers/gpu/arm/t6xx/kbase/src/linux/mali_kbase_core_linux.c
+@@ -2312,6 +2312,16 @@
+ #ifdef CONFIG_MALI_NO_MALI
+         mali_error mali_err;
+ #endif /* CONFIG_MALI_NO_MALI */
++        kbase_platform_config *config;
++        int attribute_count;
++
++        config = kbasep_get_platform_config();
++        attribute_count = kbasep_get_config_attribute_count(config->attributes);
++
++        err = platform_device_add_data(pdev, config->attributes,
++                        attribute_count * sizeof(config->attributes[0]));
++        if (err)
++                return err;
+ 
+         kbdev = kbase_device_alloc();
+         if (!kbdev)
+@@ -2630,6 +2640,14 @@
+ #endif /* CONFIG_PM_RUNTIME */
+ };
+ 
++static const struct of_device_id mali_of_match[] = {
++        {
++                .compatible = "arm,mali",
++        },
++        {},
++};
++MODULE_DEVICE_TABLE(of, mali_of_match);
++
+ static struct platform_driver kbase_platform_driver =
+ {
+         .probe                = kbase_platform_device_probe,
+@@ -2639,87 +2657,11 @@
+                 .name                = kbase_drv_name,
+                 .owner                = THIS_MODULE,
+                 .pm                 = &kbase_pm_ops,
++                .of_match_table = mali_of_match,
+         },
+ };
+ 
+-#ifdef CONFIG_MALI_PLATFORM_FAKE
+-static struct platform_device *mali_device;
+-#endif /* CONFIG_MALI_PLATFORM_FAKE */
+-
+-static int __init kbase_driver_init(void)
+-{
+-        int err;
+-#ifdef CONFIG_MALI_PLATFORM_FAKE
+-        kbase_platform_config *config;
+-        int attribute_count;
+-        struct resource resources[PLATFORM_CONFIG_RESOURCE_COUNT];
+-
+-        config = kbasep_get_platform_config();
+-        attribute_count = kbasep_get_config_attribute_count(config->attributes);
+-#ifdef CONFIG_MACH_MANTA
+-        err = platform_device_add_data(&exynos5_device_g3d, config->attributes, attribute_count * sizeof(config->attributes[0]));
+-        if (err)
+-        {
+-                return err;
+-        }
+-#else
+-
+-        mali_device = platform_device_alloc( kbase_drv_name, 0);
+-        if (mali_device == NULL)
+-        {
+-                return -ENOMEM;
+-        }
+-
+-        kbasep_config_parse_io_resources(config->io_resources, resources);
+-        err = platform_device_add_resources(mali_device, resources, PLATFORM_CONFIG_RESOURCE_COUNT);
+-        if (err)
+-        {
+-                platform_device_put(mali_device);
+-                mali_device = NULL;
+-                return err;
+-        }
+-
+-        err = platform_device_add_data(mali_device, config->attributes, attribute_count * sizeof(config->attributes[0]));
+-        if (err)
+-        {
+-                platform_device_unregister(mali_device);
+-                mali_device = NULL;
+-                return err;
+-        }
+-
+-        err = platform_device_add(mali_device);
+-        if (err)
+-        {
+-                platform_device_unregister(mali_device);
+-                mali_device = NULL;
+-                return err;
+-        }
+-
+-#endif /* CONFIG_CONFIG_MACH_MANTA */
+-#endif /* CONFIG_MALI_PLATFORM_FAKE */
+-        err = platform_driver_register(&kbase_platform_driver);
+-        if (err)
+-        {
+-                return err;
+-        }
+-
+-        return 0;
+-}
+-
+-static void __exit kbase_driver_exit(void)
+-{
+-        platform_driver_unregister(&kbase_platform_driver);
+-#ifdef CONFIG_MALI_PLATFORM_FAKE
+-        if (mali_device)
+-        {
+-                platform_device_unregister(mali_device);
+-        }
+-#endif /* CONFIG_MALI_PLATFORM_FAKE */
+-}
+-
+-module_init(kbase_driver_init);
+-module_exit(kbase_driver_exit);
+-
++module_platform_driver(kbase_platform_driver);
+ MODULE_LICENSE("GPL");
+ 
+ #ifdef CONFIG_MALI_GATOR_SUPPORT 

@@ -1,17 +1,48 @@
-/*
- * SAMSUNG UNIVERSAL5420 board device tree source
- *
- * Copyright (c) 2013 Samsung Electronics Co., Ltd.
- *		http://www.samsung.com
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation.
-*/
+
+-------
+Note 1:
+-------
+
+In some cases, the nodes defined do not have a base address, sometimes it is because they are virtual devices and thus have no base address, but often it is because they utilize a bit in the GPIO controller itself to control an on-board device.
+
+Example:
+
+	leds {
+		compatible = "gpio-leds";
+
+		mmc_led {
+			label = "mmc_led";
+			gpios = <&gpiosps 7 0>;
+			linux,default-trigger = "mmc0";
+		}
+	}
+
+...or when we see something like "i2c-gpio" with no address assigned to it and so on and so on.
+
+-------
+Note 2:
+-------
+
+The "compatible" property indicates which DEVICE DRIVER the node is compatible with.
+
+Take a good look at the board files and the Linux devicetree documentation to see which device driver is being used in each instance.
+
+-------
+Note 3:
+-------
+
+The "reg" property consists of the base address of the device followed by the size of the register space.
+
+Example:
+
+		reg = <12d10000 0x100>
+
+
+========= U5420 Starts here ======================
+========= List of utilized devices ===============
 
 /dts-v1/;
 #include "exynos5420.dtsi"
-#include "exynos5420-pinctrl.dtsi"
 
 / {
 	model = "Samsung UNIVERSAL5420 board based on EXYNOS5420";
@@ -776,7 +807,7 @@
        		gpio-controller;
        		#gpio-cells = <2>;
 
-       		/* Check these better: */
+       		/* Check these: */
 			wlf,gpio-defaults = <
 				0x00000000 /* AIF1TXLRCLK */
 				0xffffffff
@@ -804,38 +835,49 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		/* Incomplete */
-		pmic_2: max77803@66 {
-			compatible = "max77803,i2c", "maxim,max77693";
+		max77803@66 {
+			compatible = "max77803,i2c";
 			reg = <0x66>;
-			interrupt-parent = <&gpx1>;
-			interrupts = <5 2>;
-			interrupts = /* <102 0>,*/ <492 0>; /* Not sure which to use */
+			interrupt-parent = <&msmgpio>;
+			interrupts = /*<102 0>,*/ <492 0>;
 
-			/* Check these better: */
+			/* Check these: */
 			max77803,irq-gpio = <&msmgpio 102 0x00>;
 			max77803,irq-base = <353>;
 			max77803,wc-irq-gpio = <0>;
 			max77803,wakeup = <1>;
 			max77803,haptic = <&haptic_pdata>;
-
-			regulators {
-				esafeout1_reg: ESAFEOUT1@1 {
-					regulator-name = "ESAFEOUT1";
-					regulator-boot-on;
-				};
-
-				esafeout2_reg: ESAFEOUT2@2 {
-					regulator-name = "ESAFEOUT2";
-				};
-
-				charger_reg: CHARGER@0 {
-					regulator-name = "CHARGER";
-					regulator-boot-on;
-					regulator-min-microamp = <60000>;
-					regulator-max-microamp = <2580000>;
-				};
-			};
 		};
 	};
 };
+
+===== Unsure about placements ======================
+
+	jpeg_hx_0: exynos5-jpeg-hx@11f50000 {
+		reg = <0x11f50000 0x100>
+		interrupts <0 89 0>, <0 168 0>;
+	};
+
+	jpeg_hx_1: exynos5-jpeg-hx@11f60000 {
+		reg = <11f60000 0x100>
+		interrupts <0 89 0>, <0 168 0>;
+	};
+
+	fb0 {
+		atmel famebuffer: fb@(address) {
+		};
+	};
+
+544:      28923          0          0          0  s5p_gpioint  Atmel MXT1664S
+video driver: s5p-dp
+fb driver: s5p-fb
+
+???:
+	dp-panel {
+		compatible = "samsung,exynos-dp-panel";
+		samsung,led-en-gpio = <&gpx3 0 1>;
+		samsung,panel-pre-enable-delay = <40>;
+		samsung,panel-enable-delay = <20>;
+		samsung,panel-disable-delay = <20>;
+		samsung,panel-post-disable-delay = <30>;
+	};

@@ -1,0 +1,166 @@
+03830000-038300ff : samsung-i2s
+03880000-03880fff : dma-pl330.3
+   03880000-03880fff : dma-pl330
+10060000-10063fff : exynos5-tmu
+10064000-10067fff : exynos5-tmu
+10068000-1006bfff : exynos5-tmu
+1006c000-1006ffff : exynos5-tmu
+100a0000-100a3fff : exynos5-tmu
+101b0000-101bffff : cec
+101d0000-101d03ff : s3c2410-wdt
+   101d0000-101d03ff : s3c2410-wdt
+101e0000-101e00ff : s3c64xx-rtc
+   101e0000-101e00ff : persistent_clock
+     101e0000-101e00ff : persistent_clock
+10800000-10801000 : dma-pl330.2
+   10800000-10801000 : dma-pl330
+10850000-10850fff : s5p-fimg2d
+   10850000-10850fff : s5p-fimg2d
+10a60000-10a60fff : 2D
+10a70000-10a70fff : 2D_WR
+11000000-1100ffff : s5p-mfc-v6
+   11000000-1100ffff : s5p-mfc-v6
+11200000-11200fff : MFC_R
+11210000-11210fff : MFC_L
+11800000-11804fff : mali.0
+   11800000-11804fff : mali.0
+11d40000-11d40fff : ROTATOR
+11f10000-11f10fff : MJPEG
+11f20000-11f20fff : MJPEG2
+11f50000-11f50fff : exynos5-jpeg-hx.0
+   11f50000-11f50fff : exynos5-jpeg-hx.0
+11f60000-11f60fff : exynos5-jpeg-hx.1
+   11f60000-11f60fff : exynos5-jpeg-hx.1
+12000000-12007fff : exynos-xhci.0
+   12000000-12007fff : exynos-xhci.0
+1200c100-1200c6ff : exynos-dwc3.0
+1200c700-1200cbff : exynos-ss-udc.0
+   1200c700-1200cbff : exynos-ss-udc.0
+121a0000-121a0fff : dma-pl330.0
+   121a0000-121a0fff : dma-pl330
+121b0000-121b0fff : dma-pl330.1
+   121b0000-121b0fff : dma-pl330
+1240c100-1240c6ff : exynos-dwc3.1
+12800000-12800fff : exynos5-scaler.0
+   12800000-12800fff : exynos5-scaler.0
+12810000-12810fff : exynos5-scaler.1
+   12810000-12810fff : exynos5-scaler.1
+12820000-12820fff : exynos5-scaler.2
+   12820000-12820fff : exynos5-scaler.2
+12880000-12880fff : R_MSCL0
+12890000-12890fff : R_MSCL1
+128a0000-128a0fff : R_MSCL2
+128c0000-128c0fff : W_MSCL0
+128d0000-128d0fff : W_MSCL1
+128e0000-128e0fff : W_MSCL2
+12c00000-12c000ff : exynos4210-uart.0
+   12c00000-12c000ff : exynos4210-uart
+12c10000-12c100ff : exynos4210-uart.1
+   12c10000-12c100ff : exynos4210-uart
+12c20000-12c200ff : exynos4210-uart.2
+   12c20000-12c200ff : exynos4210-uart
+12c30000-12c300ff : exynos4210-uart.3
+   12c30000-12c300ff : exynos4210-uart
+12c60000-12c60fff : s3c2440-i2c
+12c70000-12c70fff : s3c2440-i2c.1
+   12c70000-12c70fff : s3c2440-i2c
+12c90000-12c90fff : s3c2440-i2c.3
+   12c90000-12c90fff : s3c2440-i2c
+12cd0000-12cd0fff : exynos5-hs-i2c
+12d10000-12d100ff : samsung-adc
+12e00000-12e00fff : exynos5-hs-i2c
+12e20000-12e20fff : exynos5-hs-i2c.6
+   12e20000-12e20fff : exynos5-hs-i2c
+13000000-1319ffff : ˆ„½À@êžÞfimc_is_spi
+   13000000-1319ffff : exynos5-fimc-is
+131a0000-131a00ff : s3c64xx-spi.3
+13260000-13260fff : ISP
+13270000-13270fff : DRC
+13280000-13280fff : SCALERC
+13290000-13290fff : SCALERP
+132a0000-132a0fff : FD
+132b0000-132b0fff : ISPCPU
+132c0000-132c0fff : ODC
+132d0000-132d0fff : DIS0
+132e0000-132e0fff : DIS1
+132f0000-132f0fff : 3DNR
+13c00000-13c00fff : exynos-fimc-lite.0
+   13c00000-13c00fff : exynos-fimc-lite
+13c10000-13c10fff : exynos-fimc-lite.1
+   13c10000-13c10fff : exynos-fimc-lite
+13c30000-13c33fff : s5p-mipi-csis.1
+   13c30000-13c33fff : s5p-mipi-csis
+13c40000-13c40fff : LITE0
+13c50000-13c50fff : LITE1
+13cb0000-13cb0fff : S3D
+13cc0000-13cc0fff : 3AA
+13e00000-13e00fff : exynos-gsc.0
+   13e00000-13e00fff : exynos-gsc.0
+13e10000-13e10fff : exynos-gsc.1
+   13e10000-13e10fff : exynos-gsc.1
+13e80000-13e80fff : GSC0
+13e90000-13e90fff : GSC1
+14400000-1443ffff : exynos5-fb.1
+14440000-14447fff : ielcd
+14450000-1445ffff : mxr
+14520000-14520fff : mdnie
+14530000-145affff : exynos5-hdmi
+145b0000-145b0fff : s5p-dp
+145d0000-145d7fff : exynos5-hdmi
+14640000-14640fff : FIMD1
+14650000-14650fff : TV
+14680000-14680fff : FIMD1A
+67000000-67f9ffff : exynos5-fb.1
+03830000-038300ff : samsung-i2s.0
+10060000-10063fff : exynos5-tmu
+10064000-10067fff : exynos5-tmu
+10068000-1006bfff : exynos5-tmu
+1006c000-1006ffff : exynos5-tmu
+100a0000-100a3fff : exynos5-tmu
+10a60000-10a60fff : 2D
+10a70000-10a70fff : 2D_WR
+11200000-11200fff : MFC_R
+11210000-11210fff : MFC_L
+11d40000-11d40fff : ROTATOR
+11f10000-11f10fff : MJPEG
+11f20000-11f20fff : MJPEG2
+12000000-120fffff : exynos-dwc3.0
+12110000-121100ff : s5p-ehci
+12200000-12201fff : dw_mmc.0
+12210000-12211fff : dw_mmc.1
+12220000-12221fff : dw_mmc.2
+12400000-124fffff : exynos-dwc3.1
+12880000-12880fff : R_MSCL0
+12890000-12890fff : R_MSCL1
+128a0000-128a0fff : R_MSCL2
+128c0000-128c0fff : W_MSCL0
+128d0000-128d0fff : W_MSCL1
+128e0000-128e0fff : W_MSCL2
+12c60000-12c60fff : s3c2440-i2c.0
+12cd0000-12cd0fff : exynos5-hs-i2c.3
+12d40000-12d400ff : s3c64xx-spi.2
+12e00000-12e00fff : exynos5-hs-i2c.4
+13260000-13260fff : ISP
+13270000-13270fff : DRC
+13280000-13280fff : SCALERC
+13290000-13290fff : SCALERP
+132a0000-132a0fff : FD
+132b0000-132b0fff : ISPCPU
+132c0000-132c0fff : ODC
+132d0000-132d0fff : DIS0
+132e0000-132e0fff : DIS1
+132f0000-132f0fff : 3DNR
+13c40000-13c40fff : LITE0
+13c50000-13c50fff : LITE1
+13cb0000-13cb0fff : S3D
+13cc0000-13cc0fff : 3AA
+13e80000-13e80fff : GSC0
+13e90000-13e90fff : GSC1
+14400000-1443ffff : exynos5-fb.1
+145b0000-145b0fff : s5p-dp
+14640000-14640fff : FIMD1
+14650000-14650fff : TV
+14680000-14680fff : FIMD1A
+20000000-df9fffff : System RAM
+   20008000-20a77023 : Kernel code
+   20ab6000-21101097 : Kernel data

@@ -1,0 +1,134 @@
+
+==============================================================================
+A simple list to figure out what belongs where, and for noting down regs, interrupts, etc.
+This is only eant as an overview. Not listing complete nodes.
+==============================================================================
+
+==============================
+========== I2C nodes:
+==============================
+
+i2c_0: i2c@12C60000
+	compatible = "samsung,s3c2440-i2c";
+	reg = <0x12C60000 0x10000>;
+	interrupts = <0 56 0>;
+
+	touch@4a
+		compatible = "atmel,mxt1664s";
+		name = "sec_touchscreen";
+		reg = <0x4a>;
+		interrupt-parent = <&gpio>;
+		interrupts = <0 512 0>;
+
+i2c_1: i2c@12C70000
+	compatible = "samsung,s3c2440-i2c";
+	reg = <0x12C70000 0x10000>;
+	interrupts = <0 57 0>;
+
+i2c_3: i2c@12C80000
+	compatible = "samsung,s3c2440-i2c";
+	reg = <0x12C80000 0x10000>
+	interrupts = <0 59 0>
+
+==============================
+========== HS I2C nodes:
+==============================
+
+hsi2c_3: i2c@12CD0000
+	reg = <0x12CD0000 0x10000>;
+	interrupts = <0 63 0>;
+
+	max77802@ < MISSING >
+		reg = < MISSING >
+		interrupts = < MISSING >
+
+
+hsi2c_4: i2c@12E00000
+	reg = <0x12E00000 0x10000>;
+	interrupts = <0 87 0>;
+
+	sec_e-pen /* node for wacom s-pen */
+		< MISSING >
+
+
+hsi2c_6: i2c@12E20000
+	reg = <0x12E20000 0x10000>;
+	interrupts = <0 203 0>
+
+
+==============================
+========== I2C-GPIO nodes:
+==============================
+
+i2c_max77803: i2c-gpio-17
+	compatible = "i2c-gpio";
+	reg = < MISSING >
+	interrupts = < MISSING >
+
+	max77803_charger: max77693@???
+		interrupt-parent = < MISSING >;
+		interrupts = < MISSING >;
+		reg = < MISSING >;
+
+		regulators
+			safeout1
+			safeout2
+			charger
+	
+	max77803_leds: max77803@???
+		leds_sec1
+		torch_sec1
+
+	max77803_muic: max77803@???
+		muic
+
+	max77803_haptic: max77803@???
+		haptic
+
+
+==============================
+========== SPI nodes:
+==============================
+
+	/* max77803 */
+	/* (i2cs3c64xx-spi.2 : spi2.0) */
+	/* spi-s3c64xx only gives value of 102 but 102 - 32 = 70. */
+
+	spi_0: spi@12d20000
+		compatible = "samsung,spi-s3c64xx", "samsung,s3c64xx-spi", "samsung,exynos4210-spi";
+		reg = <0x12D20000 ????>
+		interrupts = <0 70 0>
+
+
+	spi_1: spi@12D30000
+		compatible = "samsung,spi-s3c64xx", "samsung,s3c64xx-spi", "samsung,exynos4210-spi";
+		reg = <0x12D30000 ????>
+		interrupts = <0 70 0>
+
+	spi_2: spi@12D40000
+		compatible = "samsung,spi-s3c64xx", "samsung,s3c64xx-spi", "samsung,exynos4210-spi";
+		reg = <0x12D40000 ????>
+		interrupts = <0 70 0>
+
+	spi_3: spi@131A0000
+		compatible = "samsung,spi-s3c64xx", "samsung,s3c64xx-spi", "samsung,exynos4210-spi";
+		reg = <0x131A0000 ????>
+		interrupts = <0 70 0>
+
+	spi
+		compatible = "spi-gpio";
+			max77803@????
+				codec: wm5102@??? {
+				compatible: "wlf,wm5102";
+				reg = < MISSING >;
+				interrupts = <347>;
+
+==============================
+========== GPU nodes:
+==============================
+
+ 	mali@11800000 {
+            compatible = "arm,mali";
+            reg = <0x11800000 0x5000>;
+            interrupts = <0 219 0>, <0 74 0>, <0 117 0>;
+

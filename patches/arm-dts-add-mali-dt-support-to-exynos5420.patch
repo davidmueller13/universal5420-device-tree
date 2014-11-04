@@ -1,0 +1,37 @@
+ARM: dts: Add mali device tree support to exynos5420
+
+This patch is required on top the original patch
+to add DT support to mali for 13WK20 mali release
+
+BUG=chrome-os-partner:19339
+TEST=Built and booted snow board and saw login screen
+
+[dianders: split out device tree]
+
+Change-Id: I3f0964f50f219056b35b5e55ee8b3a6feffdc865
+Signed-off-by: Shirish S <s.sh...@samsung.com>
+Signed-off-by: Doug Anderson <dian...@chromium.org>
+---
+M arch/arm/boot/dts/exynos5420.dtsi
+1 file changed, 8 insertions(+), 0 deletions(-)
+
+
+  git pull ssh://gerrit.chromium.org:29418/chromiumos/third_party/kernel-next refs/changes/73/56273/1
+
+diff --git a/arch/arm/boot/dts/exynos5420.dtsi b/arch/arm/boot/dts/exynos5420.dtsi
+index b3ecdf2..50d0f09 100644
+--- a/arch/arm/boot/dts/exynos5420.dtsi
++++ b/arch/arm/boot/dts/exynos5420.dtsi
+@@ -306,4 +306,12 @@
+                         samsung,enable-mask = <1>;
+                 };
+         };
++
++        mali {
++                compatible = "arm,mali";
++                reg = <0x11800000 0x5000>;
++                interrupts = <0 219 0>, <0 74 0>, <0 117 0>;
++                clocks = <&clock 501>, <&clock 500>;
++                clock-names = "g3d", "aclk_g3d";
++        };
+ }; 
