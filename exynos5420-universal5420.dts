@@ -771,7 +771,7 @@
 			interrupts = <501 0>;
 			interrupt-controller;
 			#interrupt-cells = <2>;
-       		interrupt-parent = <&gic>;
+			interrupt-parent = <&gic>;
 
 			gpio-controller;
 			#gpio-cells = <2>;
