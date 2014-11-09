@@ -1,0 +1,496 @@
+/
+o-- memory
+|
+o-- chosen
+|
+o-- fixed-rate-clocks
+|		|
+|		o-- oscclk
+|
+o-- rtc@101E0000
+|
+o-- mmc_0: mmc@12200000
+|		|
+|		o-- slot@0
+|
+o-- mmc_1: mmc@12210000
+|		|
+|		o-- slot@0
+|
+o-- mmc_2: mmc@12220000
+|		|
+|		o-- slot@0
+|
+o-- dp-controller@145B0000
+|
+o-- fimd@14400000
+|		|
+|		o-- display-timings
+|			|
+|			o-- timing0: timing@0
+|
+o-- fimc_is@13000000
+|
+o-- pinctrl@13400000
+|		|
+|		o-- hdmi_hpd_irq: hdmi-hpd-irq
+|
+o-- pinctrl@14000000
+|		|
+|		o-- fimc_is_flash
+|		|
+|		o-- usb300_vbus_en: usb300-vbus-en
+|		|
+|		o-- usb301_vbus_en: usb301-vbus-en
+|
+o-- hdmi@14530000
+|
+o-- usb300_vbus_reg: regulator-usb300
+|
+o-- usb301_vbus_reg: regulator-usb301
+|
+o-- phy@12100000
+|
+o-- phy@12500000
+|
+o-- gpu: mali@11800000
+|
+o-- i2c_0: i2c@12C60000
+|		|
+|		o-- display: touch@4b
+|
+o-- i2c_1: i2c@12C70000
+|		|
+|		o-- 
+|
+o-- i2c_2: i2c@12C80000
+|		|
+|		o-- edid@50
+|		|
+|		o-- hdcp@3A
+|
+o-- i2c_3: i2c@12C90000
+|		|
+|		o-- 
+|
+o-- hsi2c_3: i2c@12CD0000
+|		|
+|		o-- pmic_1: max77802-pmic@9
+|			|
+|			o-- voltage-regulators
+|				|
+|				o-- ldo1_reg: LDO1
+|				|
+|				o-- ldo2_reg: LDO2
+|				|
+|				o-- ldo3_reg: LDO3
+|				|
+|				o-- ldo4_reg: LDO4
+|				|
+|				o-- ldo5_reg: LDO5
+|				|
+|				o-- ldo6_reg: LDO6
+|				|
+|				o-- ldo7_reg: LDO7
+|				|
+|				o-- ldo8_reg: LDO8
+|				|
+|				o-- ldo9_reg: LDO9
+|				|
+|				o-- ldo10_reg: LDO10
+|				|
+|				o-- ldo11_reg: LDO11
+|				|
+|				o-- ldo12_reg: LDO12
+|				|
+|				o-- ldo13_reg: LDO13
+|				|
+|				o-- ldo14_reg: LDO14
+|				|
+|				o-- ldo15_reg: LDO15
+|				|
+|				o-- ldo16_reg: LDO16
+|				|
+|				o-- ldo17_reg: LDO17
+|				|
+|				o-- ldo18_reg: LDO18
+|				|
+|				o-- ldo19_reg: LDO19
+|				|
+|				o-- ldo20_reg: LDO20
+|				|
+|				o-- ldo21_reg: LDO21
+|				|
+|				o-- ldo22_reg: LDO22
+|				|
+|				o-- ldo23_reg: LDO23
+|				|
+|				o-- ldo24_reg: LDO24
+|				|
+|				o-- ldo25_reg: LDO25
+|				|
+|				o-- ldo26_reg: LDO26
+|				|
+|				o-- ldo27_reg: LDO27
+|				|
+|				o-- ldo28_reg: LDO28
+|				|
+|				o-- ldo29_reg: LDO29
+|				|
+|				o-- ldo30_reg: LDO30
+|				|
+|				o-- ldo31_reg: LDO31
+|				|
+|				o-- ldo32_reg: LDO32
+|				|
+|				o-- ldo33_reg: LDO33
+|				|
+|				o-- ldo34_reg: LDO34
+|				|
+|				o-- ldo35_reg: LDO35
+|				|
+|				o-- buck1_reg: BUCK1
+|				|
+|				o-- buck2_reg: BUCK2
+|				|
+|				o-- buck3_reg: BUCK3
+|				|
+|				o-- buck4_reg: BUCK4
+|				|
+|				o-- buck5_reg: BUCK5
+|				|
+|				o-- buck6_reg: BUCK6
+|
+o-- hsi2c_4: i2c@12E00000
+|		|
+|		o-- 
+|
+o-- hsi2c_6: i2c@12E20000
+|		|
+|		o-- 
+|
+o-- spi_2: spi@12d40000
+|		|
+|		o-- codec: wm5102@1a
+|
+o-- i2c@0
+|		|
+|		o-- mfd: max77803@66
+|				|
+|				o-- regulators
+|				|	|
+|				|	o-- esafeout1_reg: ESAFEOUT1@1
+|				|	|
+|				|	o-- esafeout2_reg: ESAFEOUT2@2
+|				|	|
+|				|	o-- charger_reg: CHARGER@0
+|				|
+|				o-- leds
+|					|
+|					o-- leds-sec1
+|					|
+|					o-- torch-sec1
+|
+o-- gpio-keys
+|		|
+|		o-- key-down
+|		|
+|		o-- key-up
+|		|
+|		o-- key-power
+|		|
+|		o-- key-ok
+|
+o-- fimd_fb
+|		|
+|		o-- fimd: fimd_ctrl
+|				|
+|				o-- fb_driver_data
+|						|
+|						o-- fb_win_variant_0
+|						|
+|						o-- fb_win_variant_1
+|						|
+|						o-- fb_win_variant_3
+|						|
+|						o-- fb_win_variant_4
+|
+o-- usbdrd3_0: usb@12000000
+|		|
+|		o-- dwc3
+|
+o-- usbdrd3_1: usb@12400000
+|		|
+|		o-- dwc3
+|
+o-- mipi_dsi: mipi_dsi
+|		|
+|		o-- 
+|
+o-- ion
+|		|
+|		o-- ion_noncontig_heap
+|		|
+|		o-- exynos_noncontig_heap
+|		
+| Below this line are devices and busses that have yet to be investigated
+| Some may be the child-nodes of others, some may even be unnecessary.
+| The names are also not complete. This is basically just the rest of what is listed
+| in the /proc/interrupts file.
+|
+o-- adc: adc@12D10000
+|		|
+|		o-- 
+|
+o-- amba
+|		|
+|		o--
+|
+o-- pdma0: pdma@121A0000
+|		|
+|		o-- adma: adma@03880000
+|		|
+|		o-- pdma0: pdma@121A0000
+|		|
+|		o-- pdma1: pdma@121B0000
+|		|
+|		o-- mdma0: mdma@10800000
+|		|
+|		o-- mdma1: mdma@11C10000
+|
+o-- watchdog: watchdog@101D0000 (Probably not needed here and probably no child-nodes.)
+|
+o-- uart_0: serial@12C00000
+|		|
+|		o-- 
+|
+o-- uart_1: serial@12C10000
+|		|
+|		o-- 
+|
+o-- uart_2: serial@12C20000
+|		|
+|		o-- 
+|
+o-- uart_3: serial@12C30000
+|		|
+|		o-- 
+|
+o-- tmu_cpu0: tmu@10060000
+|		|
+|		o-- 
+|
+o-- tmu_cpu1: tmu@10064000
+|		|
+|		o-- 
+|
+o-- tmu_cpu2: tmu@10068000
+|		|
+|		o-- 
+|
+o-- tmu_cpu3: tmu@1006c000
+|		|
+|		o-- 
+|
+o-- tmu_gpu: tmu@100a0000
+|		|
+|		o-- 
+|
+o-- usbhost1: usb@12120000
+|		|
+|		o-- 
+|
+o-- usbhost2: usb@12110000
+|		|
+|		o-- 
+|
+o-- xhci_hcd:usb2, exynos-ss-udc.0
+|		|
+|		o-- 
+|
+o-- dwmmc0@12200000 (check address)
+|		|
+|		o-- 
+|
+o-- dwmmc0@12200000 (check address)
+|		|
+|		o-- slot@0
+|
+o-- dw-mci (see above - look this up)
+|
+o-- csis_0: csis@13C20000
+|		|
+|		o--
+|
+o-- csis_1: csis@13C30000
+|		|
+|		o-- 
+|
+o-- gsc_0: video-scaler@13e00000
+|		|
+|		o-- 
+|
+o-- gsc_1: video-scaler@13e10000
+|		|
+|		o-- 
+|
+o-- exynos5-jpeg-hx (can't find any dt refs for this driver)
+|		|
+|		o-- 
+|
+o-- s5p-fimg2d (can't find any dt refs for this driver)
+|		|
+|		o-- 
+|
+o-- s5p-mixer (can't find any dt refs for this driver)
+|		|
+|		o-- 
+|
+o-- hdmi: hdmi@14530000
+|		|
+|		o-- 
+|
+o-- hdmiphy: hdmiphy@145D0000
+|		|
+|		o-- 
+|
+o-- mfc: codec@11000000 (in /proc/interrupts: s5p-mfc-v6 look this up!)
+|		|
+|		o-- 
+|
+o-- mct_tick0
+|		|
+|		o-- 
+|
+o-- mct_tick1
+|		|
+|		o-- 
+|
+o-- mct_tick2
+|		|
+|		o-- 
+|
+o-- mct_tick3
+|		|
+|		o-- 
+|
+o-- exynos-fimc-lite 1
+|		|
+|		o-- 
+|
+o-- exynos-fimc-lite 2
+|		|
+|		o-- 
+|
+o-- exynos5-jpeg-hx
+|		|
+|		o-- 
+|
+o-- exynos5-scaler
+|		|
+|		o-- 
+|
+o-- mobicore
+|		|
+|		o-- 
+|
+o-- exynos-sysmmu 0 - 30
+|		|
+|		o-- 
+|
+o-- s5p-dp
+|		|
+|		o-- 
+|
+o-- framebuffer: s3c_fb
+|		|
+|		o-- 
+|
+o-- mcuctl
+|		|
+|		o-- 
+|
+o-- mct_comp_irq
+|		|
+|		o-- 
+|
+o-- mct_comp_irq
+|		|
+|		o-- 
+|
+o-- pen_insert
+|		|
+|		o-- 
+|
+o-- flip_cover
+|		|
+|		o-- 
+|
+o-- bma255_accel
+|		|
+|		o-- 
+|
+o-- max77803-irq
+|		|
+|		o-- 
+o-- fuelgauge-irq
+|		|
+|		o-- 
+|
+o-- bcmsdh_sdmmc
+|		|
+|		o-- 
+|
+o--  bt host_wake
+|		|
+|		o-- 
+|
+o-- arizona
+|		|
+|		o-- 
+|
+o-- max77802-irq
+|		|
+|		o-- 
+|
+o-- ak8963c_int
+|		|
+|		o-- 
+|
+o-- gps_host_wake
+|		|
+|		o-- 
+|
+o-- s5p_gpioint  Atmel MXT1664S
+|		|
+|		o-- 
+|
+o-- s5p_gpioint  sec_epen_irq
+|		|
+|		o-- 
+|
+o-- s5p_gpioint  sec_epen_pdct
+|		|
+|		o-- 
+|
+o-- s5p_gpioint  sii8240
+|		|
+|		o-- 
+|
+o-- max77802  rtc-alarm0
+|		|
+|		o-- 
+|
+o-- arizona  wm5102 AOD
+|		|
+|		o-- 
+|
+o-- arizona  wm5102 IRQ
+|		|
+|		o-- 
+|
+o-- max77803  bypass-irq
+o-- max77803  chgin-irq
+o-- max77803  muic-adc
+o-- max77803  muic-chgtype
+o-- max77803  muic-vbvolt
